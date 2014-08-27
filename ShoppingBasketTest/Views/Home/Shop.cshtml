@@ -1,0 +1,59 @@
+﻿@model ShoppingBasketTest.Models.BasketViewModel
+@using (Html.BeginForm())
+{
+
+
+    {
+        ViewBag.Title = "Shop";
+    }
+
+    <h2>Shop</h2>
+
+
+
+    
+    
+    @Html.HiddenFor(m => m.myBasket)
+
+      
+    
+    <table>
+        <th>Groceries Available</th>
+        <th></th>
+        @foreach (SelectListItem myBasketItem in Model.ddlGroceryItem)
+        {
+            <tr>
+                <td>@myBasketItem.Text
+                </td>
+                @*   <td>@myBasketItem.Value
+ 
+                </td>*@
+            </tr>
+        }
+    </table>  
+    @Html.TextBox("SelectedGroceries")
+    
+    
+    <input type="submit" value="Select" />
+    
+    
+    
+    <table>
+        <th>Checkout Output</th>
+        <th></th>
+        @foreach (string myLine in Model.outputLines)
+        {
+            <tr>
+                <td>@myLine
+                </td>
+                @*   <td>@myBasketItem.Value
+ 
+                </td>*@
+            </tr>
+        }
+    </table> 
+    
+
+}
+
+
